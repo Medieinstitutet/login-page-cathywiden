@@ -1,0 +1,26 @@
+body {
+    font-family: 'Verdana';
+    color: white;
+    background-color: rgb(6, 117, 120);
+}
+
+h2, div {
+    margin-left: 20px;
+}
+
+footer {
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    font-size: 16px;
+    color: white;
+    font-style: italic;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+};
+  
