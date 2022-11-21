@@ -4,7 +4,7 @@ user: test, pass: test
 
 
 let loginData = [
-    {userName:"janne", passWord: "test"},
-    {userName:"cathy", passWord: "test"},
-    {userName:"test", passWord: "test"},
+    {userName:"janne", password: "test"},
+    {userName:"cathy", password: "test"},
+    {userName:"test", password: "test"},
 ];
