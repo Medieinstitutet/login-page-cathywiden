@@ -27,7 +27,7 @@ dynamic content via js
 new user registration
 
 [x] error message if no password is entered
-[ ] new user logged in status saved in localStorage
+[ ] new user's logged-in status saved in localStorage
 
 
 other

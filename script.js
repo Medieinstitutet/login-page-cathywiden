@@ -65,8 +65,7 @@ else {
             let inputUsername = document.getElementById("inputUsername");
             let inputPassword = document.getElementById("inputPassword");
             
-        
-            inputPassword.style.backgroundColor = 'green';
+            // inputPassword.style.backgroundColor = 'yellow';
               
 
      // Check if user exists: compare both entered username and pass with preset list in [presetUsers]
@@ -109,9 +108,8 @@ else {
                     // Add newly reg. user to localStorage
 
                     localStorage.setItem(("presetUsers"), JSON.stringify(presetUsers));
-                    let getPresetUsers = JSON.parse(localStorage.getItem("presetUsers"));  
 
-                    content.innerHTML=loggedInPage;
+                    content.innerHTML = loggedInPage;
 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
