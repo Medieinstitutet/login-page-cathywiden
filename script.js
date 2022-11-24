@@ -13,7 +13,7 @@ password: "test"},
 ];
 
 /*
-   Set up the three different layouts with JS (let):
+   Set up the three different layouts with template literals:
    (1) defaultPage with user/pass input fields
    (2) loggedInPage: Welcome [user] + logout button
    (3) regPage 
@@ -44,11 +44,9 @@ let regPage = `<label for="username">Register username</label>
 // Check if there’s anyone logged in. If so, redirect to loggedInPage. Else, show defaultPage
 
 if (localStorage.usernameKey) {
-
     content.innerHTML = loggedInPage; 
 
     let logoutBtn = document.getElementById("logoutBtn");
-
         logoutBtn.addEventListener("click", function (){
         	localStorage.removeItem("usernameKey");
         	content.innerHTML = defaultPage;
@@ -57,7 +55,7 @@ if (localStorage.usernameKey) {
 }
 
 else {
-       content.innerHTML = defaultPage;
+    content.innerHTML = defaultPage;
     
     let loginBtn = document.getElementById("loginBtn");
 
@@ -65,21 +63,20 @@ else {
             let inputUsername = document.getElementById("inputUsername");
             let inputPassword = document.getElementById("inputPassword");
 
-     // Check if user with such credentials exists
+        // Check if user exists
 
         for (data in accounts){ 
 
             if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
-          
                 localStorage.usernameKey = inputUsername.value;
-                content.innerHTML = loggedInPage
+                content.innerHTML = loggedInPage;
                 location.reload();             
             }
             
             else {
                 let message = document.getElementById("message");
                 message.innerHTML = "Wrong credentials. Try again?";
-                // inputPassword.style.backgroundColor = 'yellow';
+                
             }   
         }    
     });
@@ -93,7 +90,6 @@ else {
         // Confirm registration
 
         let confirmBtn = document.getElementById("confirmBtn");
-
         confirmBtn.addEventListener("click", function () {
 
             let newUser = document.getElementById("newUser");
@@ -104,21 +100,24 @@ else {
 
                     // Add newly reg. user to localStorage
                     localStorage.setItem("usernameKey", newUser.value);
-                
                     // localStorage.setItem(("accounts"), JSON.stringify(accounts));
-
+                    
                     content.innerHTML = loggedInPage;
                     location.reload(); 
-
-
-
+ 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
-                        //localStorage.removeItem("usernameKey");
+                        localStorage.removeItem("usernameKey");
                         content.innerHTML = defaultPage;
-                        //location.reload(); 
                     })
                 }
+
+                else if (newUser.value && newPassword.value && newPasswordConfirm.value && (newPassword.value !== newPasswordConfirm.value)) {
+                    let regMessage = document.getElementById("regMessage");
+                    regMessage.innerHTML = "Your passwords do not match. Please try again.";
+                    newPasswordConfirm.style.backgroundColor = "aqua";
+                }
+
                 else {
                     console.log("Please fill in username and password.");
                     let regMessage = document.getElementById("regMessage");
@@ -128,5 +127,4 @@ else {
     })
     
 }
-
 
