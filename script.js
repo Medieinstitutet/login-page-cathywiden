@@ -112,9 +112,9 @@ else {
 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
-                        localStorage.removeItem("usernameKey");
+                        //localStorage.removeItem("usernameKey");
                         content.innerHTML = defaultPage;
-                        location.reload(); 
+                        //location.reload(); 
                     })
                 }
                 else {
