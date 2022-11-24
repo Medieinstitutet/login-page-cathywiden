@@ -108,7 +108,7 @@ else {
                     // localStorage.setItem(("accounts"), JSON.stringify(accounts));
 
                     content.innerHTML = loggedInPage;
-                    
+                    location.reload(); 
 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
