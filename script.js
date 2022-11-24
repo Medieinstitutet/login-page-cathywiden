@@ -31,11 +31,11 @@ let defaultPage = `<p>Please log in!</p>
 let loggedInPage = `<P>Welcome ${localStorage.getItem('usernameKey')}! You have logged in.</p>
 <button id=logoutBtn>Log out</button>`;
 
-let regPage = `<label for="username">Register desired username</label>
+let regPage = `<label for="username">Register username</label>
 <input type="text" id="newUser"> <br><br>
-<label for="password">Enter new password</label>
+<label for="password">Enter password</label>
 <input type="text" id="newPassword"> <br><br>
-<label for="password">Confirm new password</label>
+<label for="password">Confirm password</label>
 <input type="text" id="newPasswordConfirm"> <br><br>
 <button id="confirmBtn">confirm</button> <br>
 <p id="regMessage"></p>`
@@ -79,7 +79,7 @@ else {
             else {
                 let message = document.getElementById("message");
                 message.innerHTML = "Wrong credentials. Try again?";
-                inputPassword.style.backgroundColor = 'yellow';
+                // inputPassword.style.backgroundColor = 'yellow';
             }   
         }    
     });
@@ -109,6 +109,8 @@ else {
 
                     content.innerHTML = loggedInPage;
                     location.reload(); 
+
+
 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
