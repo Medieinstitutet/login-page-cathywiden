@@ -1,14 +1,14 @@
 // Preset user/pass combos
 
-let presetUsers = [
+let accounts = [
     {
-userName:"janne", 
+username:"janne", 
 password: "test"},
     {
-userName:"cathy", 
+username:"cathy", 
 password: "test"},
     {	
-userName:"defineinsane", 
+username: "defineinsane", 
 password: "test"},
 ];
 
@@ -19,8 +19,8 @@ password: "test"},
    (3) regPage 
 */
 
-let defaultPage =`<p>Please log in!</p>
-<label for="username">Username</label>
+let defaultPage = `<p>Please log in!</p>
+<label for="username">username</label>
 <input type="text" id="inputUsername"> <br><br>
 <label for="password">Password</label>
 <input type="text" id="inputPassword"> <br><br>
@@ -31,7 +31,7 @@ let defaultPage =`<p>Please log in!</p>
 let loggedInPage = `<P>Welcome ${localStorage.getItem('usernameKey')}! You have logged in.</p>
 <button id=logoutBtn>Log out</button>`;
 
-let regPage =`<label for="userName">Register desired username</label>
+let regPage = `<label for="username">Register desired username</label>
 <input type="text" id="newUser"> <br><br>
 <label for="password">Enter new password</label>
 <input type="text" id="newPassword"> <br><br>
@@ -51,28 +51,25 @@ if (localStorage.usernameKey) {
 
         logoutBtn.addEventListener("click", function (){
         	localStorage.removeItem("usernameKey");
-        	content.innerHTML= defaultPage;
+        	content.innerHTML = defaultPage;
         	location.reload(); 
     })
 }
 
 else {
-       content.innerHTML= defaultPage;
+       content.innerHTML = defaultPage;
     
     let loginBtn = document.getElementById("loginBtn");
 
         loginBtn.addEventListener("click", function () { 
             let inputUsername = document.getElementById("inputUsername");
             let inputPassword = document.getElementById("inputPassword");
-            
-            // inputPassword.style.backgroundColor = 'yellow';
-              
 
-     // Check if user exists: compare both entered username and pass with preset list in [presetUsers]
+     // Check if user with such credentials exists
 
-        for (data in presetUsers){ 
+        for (data in accounts){ 
 
-            if (inputUsername.value === presetUsers[data].userName && inputPassword.value === presetUsers[data].password) {
+            if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
           
                 localStorage.usernameKey = inputUsername.value;
                 content.innerHTML = loggedInPage
@@ -81,47 +78,51 @@ else {
             
             else {
                 let message = document.getElementById("message");
-                message.innerHTML="Username or password is wrong. Please try again.";
+                message.innerHTML = "Wrong credentials. Try again?";
+                inputPassword.style.backgroundColor = 'yellow';
             }   
         }    
     });
  
 // Register new user
 
-    let regBtn=document.getElementById("regBtn");
+    let regBtn = document.getElementById("regBtn");
     regBtn.addEventListener("click", function () {
-        content.innerHTML= regPage;
+        content.innerHTML = regPage;
 
-         // Confirm registration
+        // Confirm registration
 
         let confirmBtn = document.getElementById("confirmBtn");
 
         confirmBtn.addEventListener("click", function () {
 
-            let newUser=document.getElementById("newUser");
+            let newUser = document.getElementById("newUser");
                 if (newUser.value && newPassword.value && (newPassword.value === newPasswordConfirm.value)) {
 
-                    // Use .push to add user to [presetUsers]
+                    // Use .push to add user to [accounts]
                  
-                    presetUsers.push({userName: newUser.value, password: newPassword.value});
+                    accounts.push({username: newUser.value, password: newPassword.value});
 
                     // Add newly reg. user to localStorage
-
-                    localStorage.setItem(("presetUsers"), JSON.stringify(presetUsers));
+                    let expandedAccounts = JSON.stringify(accounts);
+                    localStorage.setItem("usernameKey", expandedAccounts);
+                    
+                    // localStorage.setItem(("accounts"), JSON.stringify(accounts));
 
                     content.innerHTML = loggedInPage;
+                    
 
                     let logoutBtn = document.getElementById("logoutBtn");
                     logoutBtn.addEventListener("click", function (){
-                        localStorage.removeItem("presetUsers");
-                        content.innerHTML= defaultPage;
+                        localStorage.removeItem("usernameKey");
+                        content.innerHTML = defaultPage;
                         location.reload(); 
                     })
                 }
                 else {
                     console.log("Please fill in username and password.");
                     let regMessage = document.getElementById("regMessage");
-                    regMessage.innerHTML=" Please specify both a valid username and a password. Make sure the passwords match.";
+                    regMessage.innerHTML = "Please specify both a valid username and a password.";
                 }    
         })
     })

@@ -1,10 +1,16 @@
 user: janne, pass: test
 user: cathy, passs: test
-user: test, pass: test
+user: defineinsane, pass: test
 
 
-let loginData = [
-    {userName:"janne", password: "test"},
-    {userName:"cathy", password: "test"},
-    {userName:"test", password: "test"},
+let accounts = [
+    {
+username:"janne", 
+password: "test"},
+    {
+username:"cathy", 
+password: "test"},
+    {	
+username: "defineinsane", 
+password: "test"},
 ];
