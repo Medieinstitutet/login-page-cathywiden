@@ -48,7 +48,7 @@ if (localStorage.usernameKey) {
 
     let logoutBtn = document.getElementById("logoutBtn");
         logoutBtn.addEventListener("click", function (){
-        	localStorage.removeItem("usernameKey");
+        	localStorage.removeItem("usernameKey"); 
         	content.innerHTML = defaultPage;
         	location.reload(); 
     })
@@ -97,11 +97,11 @@ else {
 
                     // Use .push to add user to [accounts]
                     accounts.push({username: newUser.value, password: newPassword.value});
-
+                    
                     // Add newly reg. user to localStorage
                     localStorage.setItem("usernameKey", newUser.value);
                     // localStorage.setItem(("accounts"), JSON.stringify(accounts));
-                    
+                    console.log(newUser.value, newPassword.value);
                     content.innerHTML = loggedInPage;
                     location.reload(); 
  
@@ -109,13 +109,14 @@ else {
                     logoutBtn.addEventListener("click", function (){
                         localStorage.removeItem("usernameKey");
                         content.innerHTML = defaultPage;
+                        location.reload(); 
                     })
                 }
 
                 else if (newUser.value && newPassword.value && newPasswordConfirm.value && (newPassword.value !== newPasswordConfirm.value)) {
                     let regMessage = document.getElementById("regMessage");
                     regMessage.innerHTML = "Your passwords do not match. Please try again.";
-                    newPasswordConfirm.style.backgroundColor = "aqua";
+                    newPasswordConfirm.style.backgroundColor = "rgb(153, 255, 204)";
                 }
 
                 else {

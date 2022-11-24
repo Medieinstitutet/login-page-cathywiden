@@ -1,0 +1,35 @@
+Inlämningsuppgift -- Inloggningssida
+
+Du har fått i uppgift att utveckla en inloggningssida till ett företag. Sidan skall fungera som en proof-of-concept och har inte krav på säkerhet, utan till uppgiften kan du arbeta med användarnamn och lösenord i klartext. Dvs du kan hantera inloggningsuppgifter som statiska variabler eller i en array.
+
+Ditt projekt får enbart innehålla 1 st html sida, index.html alla vyer skall hanteras i denna.
+
+Minst 1 användare skall ha användarnamn “janne” och lösenord “test”. En lyckad inloggning skall sparas i localStorage och sidan skall komma ihåg och visa rätt vyer under tiden besökaren är inloggad.
+
+Sidan skall innehålla en header, en del för innehåll samt en footer.
+
+Headern skall alltid visas och ändras dynamiskt för att visa rätt innehåll:
+
+    En valfri logotyp eller en h1
+    Om besökaren ej är inloggad så skall ett inloggningsformulär visas.
+    Är besökaren inloggad så skall istället en logga-ut knapp visas.
+
+Innehålls-vyn skall dynamiskt växla mellan tre olika lägen:
+
+    Välkomstsida för ej inloggade.
+    Felmeddelande vid felaktig inlogging.
+    Välkomstsida för inloggad besökare.
+
+Funktionskrav (100p -- Minst 60p för G och 100p för VG)
+
+G KRAV (60p)
+Ditt projekt skall kunna testas online via tex github pages. (10p)
+Sidan visar dynamiskt rätt innehåll hela tiden. (10p)
+Det går att logga in. (10p)
+Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren och sidan kommer ihåg rätt inloggad användare och visar rätt vy. (10p)
+Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p)
+Det går att logga ut. (10p)
+
+VG KRAV (40p)
+Det skall finnas fler användare (i tex en object array), dokumentera de andra användarna inför test i readme.md (20p)
+Det skall gå att skapa och logga in med en ny användare (Då skall ett nytt formulär för detta visas på innehålls-sidan) Du skall då använda localStorage som databas för användare. (20p)

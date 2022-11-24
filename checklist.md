@@ -27,8 +27,8 @@ dynamic content via js
 new user registration
 
 [x] error message if no password is entered
-[ ] new user's logged-in status saved in localStorage
-
+[?] new user's logged-in status saved in localStorage
+[ ] new user should be persistent (added to JSON permanently) ?
 
 other
 
