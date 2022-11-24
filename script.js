@@ -100,13 +100,11 @@ else {
                 if (newUser.value && newPassword.value && (newPassword.value === newPasswordConfirm.value)) {
 
                     // Use .push to add user to [accounts]
-                 
                     accounts.push({username: newUser.value, password: newPassword.value});
 
                     // Add newly reg. user to localStorage
-                    let expandedAccounts = JSON.stringify(accounts);
-                    localStorage.setItem("usernameKey", expandedAccounts);
-                    
+                    localStorage.setItem("usernameKey", newUser.value);
+                
                     // localStorage.setItem(("accounts"), JSON.stringify(accounts));
 
                     content.innerHTML = loggedInPage;
