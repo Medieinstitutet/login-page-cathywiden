@@ -135,7 +135,7 @@ else {
 
                 // Disallow registration with existing credentials
                 if (newUser.value === accounts[data].username) {
-                    regMessage.innerHTML = `This username already exists. Pick another. <br><p> If you <strong>are</strong> "${newUser.value}", log in here:<innerHTML = "${conflictPage}</a>`;
+                    regMessage.innerHTML = `This username already exists. Pick another. <br><p> If you <strong>are</strong> "${newUser.value}", log in here: <br><innerHTML = "${conflictPage}</a>`;
 
                     newUser.style.backgroundColor = "yellow";
                     let button = document.querySelector("confirmBtn");
