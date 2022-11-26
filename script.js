@@ -15,15 +15,7 @@ let accounts = [
     },
 ];
 
-
-/*
-   Set up the three different layouts with template literals:
-   (1) defaultPage with user/pass input fields
-   (2) conflictPage: when the user attempts to register already existing username, an embedded login window opens "if you are janne, log in here"
-   (3) loggedInPage: Welcome [user] + logout button
-   (4) regPage 
-*/
-
+// defaultPage with user/pass input fields
 let defaultPage = `<p>Please log in!</p>
 <label for="username">username</label>
 <input type="text" id="inputUsername"><br><br>
@@ -33,6 +25,7 @@ let defaultPage = `<p>Please log in!</p>
 <button id="regBtn"> Register </button><br><br>
 <p id="message"></p>`;
 
+// conflictPage: when the user attempts to register already existing username, an embedded login window opens "if you are "janne", log in here"
 let conflictPage = `<br><br><label for="username">username</label>
 <input type="text" id="inputUsername"><br><br>
 <label for="password">Password</label>
@@ -40,9 +33,11 @@ let conflictPage = `<br><br><label for="username">username</label>
 <p><button id="loginBtn">Login</button></p>
 <p id="message"></p>`;
 
+// loggedInPage: Welcome [user] + logout button
 let loggedInPage = `<P>Welcome ${localStorage.getItem('loggedInUser')}! You have logged in.</p>
 <button id=logoutBtn>Log out</button>`;
 
+// regPage
 let regPage = `<label for="username">Register username</label>
 <input type="text" id="newUser"> <br><br>
 <label for="password">Enter password</label>
@@ -54,7 +49,7 @@ let regPage = `<label for="username">Register username</label>
 
 function logIn() {
     console.log("Logged in");
-    
+
     let loginBtn = document.getElementById("loginBtn");
 
     loginBtn.addEventListener("click", function () {
@@ -127,9 +122,7 @@ else {
 
         content.innerHTML = regPage;
 
-
         // Confirm registration
-
         let confirmBtn = document.getElementById("confirmBtn");
         let newUser = document.getElementById("newUser");
         let newPassword = document.getElementById("newPassword");
@@ -140,30 +133,29 @@ else {
             for (data in accounts) {
                 console.log(newUser.value);
 
-                // Disallow registration with existing
+                // Disallow registration with existing credentials
                 if (newUser.value === accounts[data].username) {
-                    regMessage.innerHTML = `This username already exists. Pick another. <br><p> If you <strong>are</strong> "${newUser.value}", log in here: <p><button id="loginBtn"><innerHTML = "${conflictPage}</a></button>`;
+                    regMessage.innerHTML = `This username already exists. Pick another. <br><p> If you <strong>are</strong> "${newUser.value}", log in here:<innerHTML = "${conflictPage}</a>`;
 
                     newUser.style.backgroundColor = "yellow";
                     let button = document.querySelector("confirmBtn");
                     button.setAttribute("disabled", true);
 
+                    //conflictPage
                     if (content.innerHTML = conflictPage) {
                         console.log("test");
                         // run login()
                         // Re-write login() so it can be run here also
                     }
                 }
-               else {
+                else {
                     newUser.style.backgroundColor = "white";
                     regMessage.innerHTML = "";
                     //button.disabled = false;
                     //.push
                 }
             }
-        }
-        )
-
+        });
 
         confirmBtn.addEventListener("click", () => {
 
