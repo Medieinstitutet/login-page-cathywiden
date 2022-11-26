@@ -26,9 +26,15 @@ dynamic content via js
 
 new user registration
 
-[x] error message if no password is entered
+// [ ] separate registration and login. No auto log-in
+[x] do not allow to register new user with existing username
+[x] if username already exists, redirect to login page OR ask for new username
+[x] e.g. janne6 is allowed to register
+[x] error message if any field is left empty
+[x] error message if passwords do not match
 [?] new user's logged-in status saved in localStorage
-[ ] new user should be persistent (added to JSON permanently) ?
+[ ] new user should be persistent (added to JSON permanently) ? (Is this at all possible with LS?)
+
 
 other
 
@@ -36,3 +42,6 @@ other
 [ ] clean up code
 [ ] upload to Github Pages
 [ ] set repo to public
+
+
+
