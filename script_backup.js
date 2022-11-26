@@ -48,7 +48,7 @@ let regPage = `<label for="username">Register username</label>
 <input type="text" id="newPassword"> <br><br>
 <label for="password">Confirm password</label>
 <input type="text" id="newPasswordConfirm"> <br><br>
-<button id="confirmBtn">Confirm</button> <br>
+<button id="confirmBtn">onfirm</button> <br>
 <p id="regMessage"></p>`
 
 
@@ -98,7 +98,33 @@ if (localStorage.loggedInUser) {
 }
 
 else {
+    //content.innerHTML = defaultPage;
+
     logIn(defaultPage);
+
+    // let loginBtn = document.getElementById("loginBtn");
+
+    // loginBtn.addEventListener("click", function () {
+    //     let inputUsername = document.getElementById("inputUsername");
+    //     let inputPassword = document.getElementById("inputPassword");
+    //     let accounts = JSON.parse(localStorage.getItem("accounts"));
+
+    //     // Check if user exists
+    //     for (data in accounts) {
+    //         //console.log(accounts[data].username);
+
+    //         if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
+    //             localStorage.loggedInUser = inputUsername.value;
+    //             content.innerHTML = loggedInPage;
+    //             location.reload();
+    //         }
+
+    //         else {
+    //             let message = document.getElementById("message");
+    //             message.innerHTML = "Wrong credentials. Try again?";
+
+    //         }
+    //   }
     };
 
     // Register new user
@@ -127,8 +153,8 @@ else {
                     regMessage.innerHTML = `This username already exists. Pick another.
                      <br><p> If you <strong>are</strong> "${newUser.value}", you can log in here:
                      <br><innerHTML = "${conflictPage}</a>`;
-                    newUser.style.backgroundColor = "yellow";
 
+                    newUser.style.backgroundColor = "yellow";
                     let confirmBtn = document.querySelector("confirmBtn");
                     //confirmBtn.setAttribute("disabled", true);
                     //confirmBtn.setAttribute("disabled", "");
@@ -200,3 +226,5 @@ else {
         )
 
     })
+console.log("Outside reg.block");
+//console.log(accounts);

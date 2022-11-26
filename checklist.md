@@ -1,42 +1,36 @@
 generic
 
-[x] basic html/css OBS without input fields as those are dynamic content
-[x] header Welcome!
+[x] basic html/css
+[x] header Welcome!/Register here!
 [x] footer
 [x] set up predefined user/pass combos
 [x] include janne/test
 [x] document all preset users in readme.md
 
 
-fix three page layouts
-
-[x] (1) default with user/pass input fields
-[x] (2) logged in: welcome [user] message 
-[x] logout option
-[x] (3) registration page
-
-
 dynamic content via js
 
-[x] if not logged in, show login page
-[x] if logged in, welcome [user] + logout option
+[x] defaultPage: if not logged in, display user/pass input fields
+[2] conflictPage: when user attempts to register with username that already exists, inject conflictPage into regPage
+[x] loggedInPage: greet user 
+[x] logout option
+[x] regPage: registration page
 [x] error message if wrong password entered
 [x] logged in status saved in localStorage
 
 
 new user registration
 
-// [ ] separate registration and login. No auto log-in
-[x] do not allow to register new user with existing username
-[x] if username already exists, redirect to login page OR ask for new username
-[x] e.g. janne6 is allowed to register
-[x] error message if any field is left empty
+[x] do not allow to register with existing username --> conflictPage
+[x] conflictPage: ask for new username OR redirect to login page below
+[x] e.g. janne6 is allowed to register. Should be seamless transition from janne (blocked) to janne6 (allowed)
+[x] error message if any field left empty
 [x] error message if passwords do not match
-[?] new user's logged-in status saved in localStorage
-[ ] new user should be persistent (added to JSON permanently) ? (Is this at all possible with LS?)
+[?] new user's logged-in status saved in localStorage 
+[x] new user is persistent: can log out and in again
 
 
-other
+misc
 
 [?] make it pretty
 [ ] clean up code
