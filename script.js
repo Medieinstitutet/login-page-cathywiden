@@ -75,7 +75,7 @@ function logIn(page) {
         let accounts = JSON.parse(localStorage.getItem("accounts"));
 
         // Check if user with such credentials exists
-        for (data in accounts) {  //rewrite? 
+        for (data in accounts) { 
 
             if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
 
@@ -122,34 +122,12 @@ regBtn.addEventListener("click", () => {
             // Block registration with existing credentials
             if (newUser.value === accounts[data].username) {
                 regMessage.innerHTML = `This username already exists. Pick another.
-                <br><p> If you <strong>are</strong> "${newUser.value}", you can log in here:
-                <br><innerHTML = "${conflictPage}</a>`;
+                <br><p> If you <strong>are</strong> "${newUser.value}", please reload the page and log in!`;
                 newUser.style.backgroundColor = "yellow";
 
 
                 let confirmBtn = document.querySelector("confirmBtn");
                 confirmBtn.remove();
-
-                let conflictBtn = document.getElementById("conflictBtn");
-                conflictBtn.addEventListener("click", () => {
-                    let inputUsername = document.getElementById("newUser");
-                    let inputPassword = document.getElementById("inputPassword");
-                    let accounts = JSON.parse(localStorage.getItem("accounts"));
-
-                    for (data in accounts) {
-                        if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
-                            localStorage.setItem("loggedInUser", inputUsername.value);
-                            content.innerHTML = loggedInPage;
-                            location.reload();
-                            break;
-                        }
-
-                        else {
-                            let message = document.getElementById("message");
-                            message.innerHTML = "Wrong credentials. Try again?";
-                        }
-                    }
-                });
             }
 
             else {
