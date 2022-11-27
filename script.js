@@ -20,13 +20,6 @@ let defaultPage = `<p>Please log in!</p>
 <button id="regBtn"> Register </button><br><br>
 <p id="message"></p>`;
 
-// conflictPage: when the user attempts to register already existing username, an embedded login window opens -- "if you are ${newUser.value}, log in here"
-let conflictPage = `<br><br>
-<label for="password">Password</label>
-<input type="text" id="inputPassword">
-<p><button id="conflictBtn">Login</button></p>
-<p id="message"></p>`;
-
 // regPage
 let regPage = `<label for="username">Register username</label>
 <input type="text" id="newUser"> <br><br>
@@ -74,8 +67,8 @@ function logIn(page) {
         let inputPassword = document.getElementById("inputPassword");
         let accounts = JSON.parse(localStorage.getItem("accounts"));
 
-        // Check if user with such credentials exists
-        for (data in accounts) { 
+        // Check if user with given credentials exists
+        for (data in accounts) {
 
             if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
 
@@ -124,7 +117,6 @@ regBtn.addEventListener("click", () => {
                 regMessage.innerHTML = `This username already exists. Pick another.
                 <br><p> If you <strong>are</strong> "${newUser.value}", please reload the page and log in!`;
                 newUser.style.backgroundColor = "yellow";
-
 
                 let confirmBtn = document.querySelector("confirmBtn");
                 confirmBtn.remove();

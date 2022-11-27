@@ -11,7 +11,6 @@ generic
 dynamic content via js
 
 [x] defaultPage: if not logged in, display user/pass input fields
-[2] conflictPage: when user attempts to register with username that already exists, inject conflictPage into regPage
 [x] loggedInPage: greet user 
 [x] logout option
 [x] regPage: registration page
@@ -21,21 +20,17 @@ dynamic content via js
 
 new user registration
 
-[x] do not allow to register with existing username --> conflictPage
-[x] conflictPage: ask for new username OR redirect to login page below
+[x] do not allow to register with existing username
 [x] e.g. janne6 is allowed to register. Should be seamless transition from janne (blocked) to janne6 (allowed)
 [x] error message if any field left empty
 [x] error message if passwords do not match
-[?] new user's logged-in status saved in localStorage 
+[x] new user's logged-in status saved in localStorage 
 [x] new user is persistent: can log out and in again
 
 
 misc
 
 [?] make it pretty
-[ ] clean up code
-[ ] upload to Github Pages
-[ ] set repo to public
-
-
-
+[x] clean up code
+[x] upload to Github Pages
+[x] set repo to public
