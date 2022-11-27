@@ -60,7 +60,46 @@ else {
     loggedInPage = "";
 };
 
+// Existing user login
+
+function logIn(page) {
+
+    content.innerHTML = page;
+    headertext.innerHTML = "Hello there,";
+
+    let loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", () => {
+        let inputUsername = document.getElementById("inputUsername");
+        let inputPassword = document.getElementById("inputPassword");
+        let accounts = JSON.parse(localStorage.getItem("accounts"));
+
+        // Check if user with such credentials exists
+        for (data in accounts) {  //rewrite? 
+
+            if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
+
+                localStorage.setItem("loggedInUser", inputUsername.value);
+                content.innerHTML = loggedInPage;
+                console.log("Logged in");
+                console.log(localStorage.getItem("loggedInUser"));
+                location.reload();
+                break;
+            }
+
+            else {
+                let message = document.getElementById("message");
+                message.innerHTML = "Wrong credentials. Try again?";
+            }
+        }
+
+    });
+}
+
 // Register new user
+
+function registerNewUser() { }
+
 let regBtn = document.getElementById("regBtn");
 
 regBtn.addEventListener("click", () => {
@@ -86,7 +125,7 @@ regBtn.addEventListener("click", () => {
                 <br><p> If you <strong>are</strong> "${newUser.value}", you can log in here:
                 <br><innerHTML = "${conflictPage}</a>`;
                 newUser.style.backgroundColor = "yellow";
-                
+
 
                 let confirmBtn = document.querySelector("confirmBtn");
                 confirmBtn.remove();
@@ -157,35 +196,3 @@ regBtn.addEventListener("click", () => {
 });
 
 
-function logIn(defaultPage) {
-
-    content.innerHTML = defaultPage;
-
-    let loginBtn = document.getElementById("loginBtn");
-
-    loginBtn.addEventListener("click", () => {
-        let inputUsername = document.getElementById("inputUsername");
-        let inputPassword = document.getElementById("inputPassword");
-        let accounts = JSON.parse(localStorage.getItem("accounts"));
-
-        // Check if user with such credentials exists
-        for (data in accounts) {  //rewrite? 
-
-            if (inputUsername.value === accounts[data].username && inputPassword.value === accounts[data].password) {
-
-                localStorage.setItem("loggedInUser", inputUsername.value);
-                content.innerHTML = loggedInPage;
-                console.log("Logged in");
-                console.log(localStorage.getItem("loggedInUser"));
-                location.reload();
-                break;
-            }
-
-            else {
-                let message = document.getElementById("message");
-                message.innerHTML = "Wrong credentials. Try again?";
-            }
-        }
-
-    });
-}
