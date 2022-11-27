@@ -1,3 +1,3 @@
 user: janne, pass: test
-user: cathy, passs: test
+user: cathy, pass: test
 user: defineinsane, pass: test
